@@ -74,7 +74,17 @@ class Ray:
 class Sphere:
     """A sphere."""
 
-    ...
+    def __init__(self,center,radius):
+        self._center=np.array(center,dtype=float)
+        self._radius=radius
+    
+    def __repr__(self):
+        return f"Circle with center {self._center.tolist()} and radius {self._radius}"
+
+    def __eq__(self,other):
+        if isinstance(other,Sphere):
+            return (np.array_equal(other._center,self._center) and (other._radius==self._radius))
+        return False
 
 
 class Triangle:
