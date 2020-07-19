@@ -59,8 +59,17 @@ class Vector:
 class Ray:
     """A ray."""
 
-    ...
-
+    def __init__(self,direction,origin):
+        self._direction=np.array(direction,dtype=float)
+        self._origin=np.array(origin,dtype=float)
+    
+    def __repr__(self):
+        return f"Ray with direction {self._direction.tolist()} and origin {self._origin.tolist()}"
+    
+    def __eq__(self, other):
+        if isinstance(other, Ray) :
+            return (np.array_equal(other._direction,self._direction) and np.array_equal(other._origin,self._origin))
+        return False
 
 class Sphere:
     """A sphere."""
