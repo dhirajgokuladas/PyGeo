@@ -79,7 +79,7 @@ class Sphere:
         self._radius=radius
     
     def __repr__(self):
-        return f"Circle with center {self._center.tolist()} and radius {self._radius}"
+        return f"Sphere with center {self._center.tolist()} and radius {self._radius}"
 
     def __eq__(self,other):
         if isinstance(other,Sphere):
