@@ -50,20 +50,20 @@ def test__vector_subtraction__given_two_vectors__return_correct_vector():
 
 # Ray.__eq__
 def test__ray_equal__given_two_equal_rays__return_true():
-    assert (Ray((1,2,3),(3,5,6)) == Ray((1,2,3),(3,5,6))) is True
+    assert (Ray(direction=Vector((1,2,3)),origin=Point((3,5,6))) == Ray(direction=Vector((1,2,3)),origin=Point((3,5,6)))) is True
 
 
 def test__ray_equal__given_two_not_equal_rays__return_false():
-    assert (Ray((1,2,3),(3,5,6)) == Ray((1,2,3),(4,5,7))) is False    
-    assert (Ray((1,2,3),(3,5,6)) == Ray((4,5,7),(3,5,6))) is False 
+    assert (Ray(direction=Vector((1,2,3)),origin=Point((3,5,6))) == Ray(direction=Vector((1,2,3)),origin=Point((4,5,7)))) is False    
+    assert (Ray(direction=Vector((1,2,3)),origin=Point((3,5,6))) == Ray(direction=Vector((4,5,7)),origin=Point((3,5,6)))) is False 
 
 
 # Sphere.__eq__
 def test__sphere_equal__given_two_equal_spheres__return_true():
-    assert (Sphere((1,2,3),5) == Sphere((1,2,3),5)) is True
+    assert (Sphere(center=Point((1,2,3)),radius=5) == Sphere(center=Point((1,2,3)),radius=5)) is True
 
 
 def test__sphere_equal__given_two_not_equal_spheres__return_false():
-    assert (Sphere((1,2,3),5) == Sphere((1,2,3),6)) is False
-    assert (Sphere((1,2,3),5) == Sphere((3,5,6),5)) is False
+    assert (Sphere(center=Point((1,2,3)),radius=5) == Sphere(center=Point((1,2,3)),radius=6)) is False
+    assert (Sphere(center=Point((1,2,3)),radius=5) == Sphere(center=Point((3,5,6)),radius=5)) is False
 

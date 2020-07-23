@@ -60,8 +60,12 @@ class Ray:
     """A ray."""
 
     def __init__(self,direction,origin):
-        self._direction=np.array(direction,dtype=float)
-        self._origin=np.array(origin,dtype=float)
+        if not isinstance(direction,Vector):
+            raise TypeError(f"Direction is not of class vector but {type(direction)}")
+        if not isinstance(origin,Point):
+            raise TypeError(f"Origin is not of class point but {type(origin)}")
+        self._direction=direction
+        self._origin=origin
     
     def __repr__(self):
         return f"Ray with direction {self._direction.tolist()} and origin {self._origin.tolist()}"
@@ -75,7 +79,9 @@ class Sphere:
     """A sphere."""
 
     def __init__(self,center,radius):
-        self._center=np.array(center,dtype=float)
+        if not isinstance(center,Point):
+            raise TypeError(f"Center is not of class point but {type(center)}")
+        self._center=center
         self._radius=radius
     
     def __repr__(self):
