@@ -18,7 +18,8 @@ def _intersect_ray_with_sphere(ray, sphere):
         d=-((np.dot(i,a)))
         point.append(((ray._direction._vector/np.linalg.norm(ray._direction._vector))*d)+ray._origin._point)
         p=np.array(point)
-        return(np.round(p,2))
+        p=np.round(p,2)
+        return(Point(p.tolist()[0]))
     else:
         d_1=-((np.dot(i,a)))+(nabla)**(1/2)
         d_2=-((np.dot(i,a)))-(nabla)**(1/2)
@@ -26,17 +27,21 @@ def _intersect_ray_with_sphere(ray, sphere):
             point.append(((ray._direction._vector/np.linalg.norm(ray._direction._vector))*d_1)+ray._origin._point)
             point.append(((ray._direction._vector/np.linalg.norm(ray._direction._vector))*d_2)+ray._origin._point)
             p=np.array(point)
-            return(np.round(p,2))
+            p=np.round(p,2)
+            return Point(p.tolist()[0]),Point(p.tolist()[1])
         elif d_1>=0 or d_2>=0:
             if d_1<d_2:
                 point.append(((ray._direction._vector/np.linalg.norm(ray._direction._vector))*d_2)+ray._origin._point)
             else:
                 point.append(((ray._direction._vector/np.linalg.norm(ray._direction._vector))*d_1)+ray._origin._point)
             p=np.array(point)
-            return(np.round(p,2))
+            p=np.round(p,2)
+            return(Point(p.tolist()[0]))
         else:
             return NotImplemented
 
 
 def _intersect_ray_with_triangle(ray, triangle):
     ...
+
+
